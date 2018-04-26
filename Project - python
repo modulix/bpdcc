@@ -1,0 +1,59 @@
+        Légende :
+        
+- fonction(argument1, argument2):output1, output2     => Définition de la fonction
+WIP = Work in progress
+
+    		Modules :
+
+    
+    /bloc [WIP]           => Les block validés
+- add (block)
+- get_info (hash, date, clé précédente, clé actuelle)
+
+	    /bloc/bloc+1	[WIP]	=> Les block en cours de validation
+- accept ():	            => Valide un packet
+- reject ():		          => Rejette un packet
+- instantBlock+1 (date, clé précédente, compteur de validation, Id)
+
+	  /bloc/doc [WIP]
+
+
+
+	  /peer
+- __init__.py					    => Fichier parent contenant le main 
+- add (certificat)				=> Quand un peer apparait sur le réseau il utilise cette fonctions pour se faire connaitre
+						              => La fonction envoie des packets au domaine domain.com:8888 pour communiquer avec les autres peer qui vont lui demander son identité, la fonction va ensuite envoyer son certificat pour se faire signer avec la clef du peer
+- get_info (id):certif,ip			=> Récupérer des informations sur un peer
+- get_list():liste_peer				=> Récupère la liste de tout les peers (qu'il faudra vérifier car elle peut être bidon)
+- election(liste_peer)liste_priv		=> [WIP] Elit nos privilégiés parmis la liste des peers en se basant sur la proximité? (ms d'un ping)
+- update (liste_peer):liste_peer		=> Vérifie sa liste de peer
+
+
+	  /peer/__init__.py [WIP]
+      
+main(){
+
+	# Le noeud arrive sur la blockchain
+
+	# Génération des clefs + Création d'un certificat
+	ssh-keygen
+	openssl
+
+	# Il doit se déclarer et faire signer son certificat à un peer
+	add()
+	# Le peer est ensuite poussé dans la blockchain
+
+	# Récupération de la liste des peers
+	get_list()
+
+	# Vérification de cette liste [WIP]
+	boucle {
+		get_info(liste_peer[i])
+	}
+
+	# Election des privilégiés
+	election(liste_peer)
+
+
+
+}
